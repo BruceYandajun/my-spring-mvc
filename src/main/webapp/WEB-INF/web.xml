@@ -10,7 +10,7 @@
   
   <servlet>
     <servlet-name>test</servlet-name>
-    <servlet-class>TestServlet</servlet-class>
+    <servlet-class>com.github.bruce.servlet.TestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>test</servlet-name>
