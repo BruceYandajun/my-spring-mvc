@@ -1,4 +1,8 @@
-package PACKAGE_NAME;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * Description
@@ -8,5 +12,10 @@ package PACKAGE_NAME;
  *
  * @author yandajun.
  */
-public class TestServlet {
+public class TestServlet extends HttpServlet {
+
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(request.getRequestURL());
+    }
 }

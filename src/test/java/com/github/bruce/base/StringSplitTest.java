@@ -10,8 +10,11 @@ package com.github.bruce.base;
  */
 public class StringSplitTest {
     public static void main(String[] args) {
-        String s = "";
-        for (String i : s.split(",")) {
+        String s = "123,";
+        System.out.println(s.substring(0, s.length() - 1));
+        String[] array = s.split(",");
+        System.out.println(array.length);
+        for (String i : array) {
             System.out.println(i);
         }
     }

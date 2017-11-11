@@ -18,3 +18,4 @@ catalina.base_IS_UNDEFINED/
 *.ipr
 *.iws
 .DS_Store
+disconf
