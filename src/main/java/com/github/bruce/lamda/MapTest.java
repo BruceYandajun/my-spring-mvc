@@ -1,7 +1,6 @@
 package com.github.bruce.lamda;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -42,5 +41,31 @@ public class MapTest {
 
         // 倒序排列
         numbers.stream().sorted((a,b) -> a < b ? 1 : -1).collect(Collectors.toList()).forEach(System.out::println);
+
+
+        List<Map<String, Object>> list = new ArrayList<>();
+        Map<String, Object> a1 = new HashMap<>();
+        a1.put("lesson", "a");
+        a1.put("version", 1);
+        Map<String, Object> a2 = new HashMap<>();
+        a2.put("lesson", "a");
+        a2.put("version", 2);
+        Map<String, Object> b1 = new HashMap<>();
+        b1.put("lesson", "b");
+        b1.put("version", 1);
+        Map<String, Object> b2 = new HashMap<>();
+        b2.put("lesson", "b");
+        b2.put("version", 2);
+
+        list.add(a1);
+        list.add(a2);
+        list.add(b1);
+        list.add(b2);
+
+        list.stream().forEach(System.out::println);
+        // 按lesson分组，并且version最大的那个
+        Object l = list.stream().collect(Collectors.groupingBy(o -> o.get("lesson"), Collectors.maxBy(Comparator.comparingInt(o -> Integer.valueOf(o.get("version").toString())))));
+        System.out.println(l);
+
     }
 }
