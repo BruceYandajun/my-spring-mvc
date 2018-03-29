@@ -5,15 +5,48 @@
   <artifactId>code_lib</artifactId>
   <packaging>war</packaging>
   <version>1.0.0-SNAPSHOT</version>
-  <name>code_lib Maven Webapp</name>
+  <name>code_lib</name>
   <url>http://maven.apache.org</url>
+  <properties>
+    <spring.version>5.0.4.RELEASE</spring.version>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>${spring.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjweaver</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.6</version>
+    </dependency>
+    <dependency>
+      <groupId>com.netflix.hystrix</groupId>
+      <artifactId>hystrix-core</artifactId>
+      <version>1.5.12</version>
+    </dependency>
+    <dependency>
+      <groupId>com.netflix.hystrix</groupId>
+      <artifactId>hystrix-javanica</artifactId>
+      <version>1.5.12</version>
+    </dependency>
   </dependencies>
 
   <build>
