@@ -2,7 +2,6 @@ package com.github.bruce.config;
 
 import com.github.bruce.model.MyBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
