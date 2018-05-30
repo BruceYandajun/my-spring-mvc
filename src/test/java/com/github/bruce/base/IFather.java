@@ -1,4 +1,4 @@
-package com.github.bruce.service;
+package com.github.bruce.base;
 
 public interface IFather {
 

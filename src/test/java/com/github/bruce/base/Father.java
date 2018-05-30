@@ -1,4 +1,4 @@
-package com.github.bruce.service;
+package com.github.bruce.base;
 
 public class Father implements IFather {
 }
