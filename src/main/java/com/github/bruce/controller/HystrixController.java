@@ -16,7 +16,7 @@ public class HystrixController {
     @Autowired
     private HystrixService hystrixService;
 
-    @RequestMapping("/getUser")
+    @GetMapping("/getUser")
     public String getUser() {
         try {
             return hystrixService.getUser(1);
