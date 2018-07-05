@@ -1,4 +1,4 @@
-package com.github.bruce.base;
+package com.github.bruce.test.base;
 
 /**
  * 斐波那契额数列

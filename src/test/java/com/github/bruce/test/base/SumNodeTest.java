@@ -1,4 +1,4 @@
-package com.github.bruce.base;
+package com.github.bruce.test.base;
 
 /**
  * 求出两个链表的和,超过10进一位；每个链表的值小于或等于9 如： Input:(2 -> 4 -> 3), (5 -> 6 -> 4) Output:7

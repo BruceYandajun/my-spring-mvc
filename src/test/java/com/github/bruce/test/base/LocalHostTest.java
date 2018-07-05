@@ -1,4 +1,4 @@
-package com.github.bruce.base;
+package com.github.bruce.test.base;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
