@@ -7,7 +7,9 @@ import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheRemove;
 import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.apache.commons.lang.math.RandomUtils;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HystrixCacheService {
 
     @CacheResult(cacheKeyMethod = "getUserByNameCacheKey")

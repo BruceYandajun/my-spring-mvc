@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BeanController {
 
     /**
-     * why using require = false property, because when this controller is initialized, myBean is not instanced by Java Config yet
+     * Why assign the attribute required to false, because when this controller is initialized, myBean is not instanced by Java Config yet
      */
     @Autowired(required = false)
     private MyBean myBean;

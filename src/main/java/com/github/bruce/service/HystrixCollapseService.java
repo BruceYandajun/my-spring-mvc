@@ -4,11 +4,13 @@ import com.github.bruce.model.User;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Future;
 
+@Service
 public class HystrixCollapseService {
 
     /** Asynchronous Execution */

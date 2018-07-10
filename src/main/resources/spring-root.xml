@@ -15,9 +15,4 @@
     <bean id="hystrixAspect" class="com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect"></bean>
     <bean id="myAspect" class="com.github.bruce.MyAspect"/>
 
-    <bean id="abcService" class="com.github.bruce.service.AbcService"/>
-    <bean id="hystrixService" class="com.github.bruce.service.HystrixService"/>
-    <bean id="hystrixCacheService" class="com.github.bruce.service.HystrixCacheService"/>
-    <bean id="hystrixCollapseService" class="com.github.bruce.service.HystrixCollapseService"/>
-
 </beans>
