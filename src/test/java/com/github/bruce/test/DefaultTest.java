@@ -1,6 +1,6 @@
 package com.github.bruce.test;
 
-import com.github.bruce.config.ApplicationContextTestAutowiredName;
+import com.github.bruce.test.config.ApplicationContextTestAutowiredName;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -10,6 +10,6 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 @ContextConfiguration(
         loader=AnnotationConfigContextLoader.class,
         classes=ApplicationContextTestAutowiredName.class)
-public class BaseTest {
+public class DefaultTest {
 
 }

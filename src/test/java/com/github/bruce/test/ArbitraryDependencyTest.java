@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ArbitraryDependencyTest extends BaseTest {
+public class ArbitraryDependencyTest extends DefaultTest {
 
     @Autowired
     private ArbitraryDependency autowiredFieldDependency;
