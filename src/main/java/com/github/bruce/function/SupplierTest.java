@@ -7,6 +7,8 @@ import java.util.stream.Stream;
 
 public class SupplierTest {
 
+    private static ThreadLocal<Integer> index = ThreadLocal.withInitial(() -> 0);
+
     public static int getLazyValue(Supplier<Integer> supplier) {
         return supplier.get();
     }
@@ -24,6 +26,8 @@ public class SupplierTest {
     }
 
     public static void main(String[] args) {
+        System.out.println(index.get());
+
         Supplier<Integer> supplier = () -> {
             try {
                 Thread.sleep(3000);
