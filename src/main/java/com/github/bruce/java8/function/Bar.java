@@ -1,4 +1,4 @@
-package com.github.bruce.function;
+package com.github.bruce.java8.function;
 
 @FunctionalInterface
 public interface Bar {

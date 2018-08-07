@@ -1,4 +1,4 @@
-package com.github.bruce.lamda;
+package com.github.bruce.java8.lamda;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -27,12 +27,10 @@ public class MapTest {
         total = costBeforeTax.stream().map((cost) -> cost + .12 * cost).reduce((sum, cost) -> sum + cost).get();
         System.out.println("total:" + total);
 
-
         // collect
         List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada");
-        String G7Countries = G7.stream().map(x -> x.toUpperCase()).collect(Collectors.joining(", "));
+        String G7Countries = G7.stream().map(String::toUpperCase).collect(Collectors.joining(", "));
         System.out.println(G7Countries);
-
 
         // distinct去重
         List<Integer> numbers = Arrays.asList(9, 10, 3, 4, 7, 3, 4);
@@ -41,7 +39,6 @@ public class MapTest {
 
         // 倒序排列
         numbers.stream().sorted((a,b) -> a < b ? 1 : -1).collect(Collectors.toList()).forEach(System.out::println);
-
 
         List<Map<String, Object>> list = new ArrayList<>();
         Map<String, Object> a1 = new HashMap<>();

@@ -1,7 +1,10 @@
-package com.github.bruce.lamda;
+package com.github.bruce.java8.lamda;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Description
@@ -21,14 +24,17 @@ public class CollectionIterator {
         System.out.println();
 
         // Lambda expression
-        features.forEach(m -> System.out.println(m.length()));
-        System.out.println();
+        features.forEach(m -> System.out.println(m));
         features.forEach(System.out::println);
+        System.out.println();
+        features.stream().collect(Collectors.joining(","));
 
         System.out.println();
 
         List<A> list = Arrays.asList(new A(1), new A(2));
         list.forEach(n -> System.out.println(n.getI()));
+        Map<Integer, A> mapa = list.stream().collect(Collectors.toMap(A::getI, Function.identity()));
+        System.out.println(mapa);
     }
 
     static class A {
@@ -45,5 +51,6 @@ public class CollectionIterator {
         public void setI(Integer i) {
             this.i = i;
         }
+
     }
 }

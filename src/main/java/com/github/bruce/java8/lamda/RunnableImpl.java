@@ -1,4 +1,4 @@
-package com.github.bruce.lamda;
+package com.github.bruce.java8.lamda;
 
 /**
  * Description
