@@ -31,26 +31,27 @@ public class CollectionIterator {
 
         System.out.println();
 
-        List<A> list = Arrays.asList(new A(1), new A(2));
+        List<A> list = Arrays.asList(new A(1), new A(2), new A(-1));
+        list = list.stream().sorted((a, b) -> a.getI() > b.getI() ? 1 : -1).collect(Collectors.toList());
         list.forEach(n -> System.out.println(n.getI()));
         Map<Integer, A> mapa = list.stream().collect(Collectors.toMap(A::getI, Function.identity()));
         System.out.println(mapa);
     }
+}
 
-    static class A {
-        private Integer i;
+ class A {
+    private Integer i;
 
-        public A (int i){
-            this.i = i;
-        }
-
-        public Integer getI() {
-            return i;
-        }
-
-        public void setI(Integer i) {
-            this.i = i;
-        }
-
+    public A (int i){
+        this.i = i;
     }
+
+    public Integer getI() {
+        return i;
+    }
+
+    public void setI(Integer i) {
+        this.i = i;
+    }
+
 }

@@ -38,7 +38,7 @@ public class MapTest {
         System.out.printf("Original List : %s, Without duplicates : %s %n", numbers, distinct);
 
         // 倒序排列
-        numbers.stream().sorted((a,b) -> a < b ? 1 : -1).collect(Collectors.toList()).forEach(System.out::println);
+        numbers.stream().sorted(Comparator.comparingInt(Integer::intValue)).collect(Collectors.toList()).forEach(System.out::println);
 
         List<Map<String, Object>> list = new ArrayList<>();
         Map<String, Object> a1 = new HashMap<>();
