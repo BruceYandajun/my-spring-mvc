@@ -3,6 +3,7 @@ package com.github.bruce.java8.lamda;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Description
@@ -15,6 +16,11 @@ import java.util.function.Predicate;
 public class PredicateTest {
     public static void main(String[] args) {
         List<String> languages = Arrays.asList("Java", "Scala", "C++", "Haskell", "Lisp");
+        String s = languages.stream().filter(str -> str.startsWith("A")).collect(Collectors.joining(","));
+        if (s.isEmpty()) {
+            System.out.println("empty");
+        }
+        System.out.println(s);
 
         // 方法一：
         languages.forEach((str) -> {
