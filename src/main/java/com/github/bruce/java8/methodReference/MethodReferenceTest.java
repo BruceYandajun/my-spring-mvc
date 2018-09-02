@@ -7,7 +7,10 @@ public class MethodReferenceTest {
 
     private void forEach() {
         List<String> features = Arrays.asList("Lambdas", "Default Method", "Stream API", "Date and Time API");
+        // 流对象作为方法的参数
         features.forEach(this::out);
+        // 流对象作为方法执行者
+        features.forEach(String::toUpperCase);
     }
 
     private void out(String s) {
