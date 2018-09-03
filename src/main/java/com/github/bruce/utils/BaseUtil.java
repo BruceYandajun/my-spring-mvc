@@ -1,4 +1,4 @@
-package com.github.bruce;
+package com.github.bruce.utils;
 
 public class BaseUtil {
     public static void line() {

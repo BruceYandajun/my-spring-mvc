@@ -7,7 +7,7 @@ import java.util.*;
 import static java.util.stream.Collectors.*;
 import static java.util.stream.Collectors.toList;
 
-import static com.github.bruce.BaseUtil.*;
+import static com.github.bruce.utils.BaseUtil.*;
 
 public class CollectStatisticsTest {
     private static List<Apple> apples = Arrays.asList(

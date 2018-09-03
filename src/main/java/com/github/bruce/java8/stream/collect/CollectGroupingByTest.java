@@ -7,7 +7,7 @@ import java.util.*;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.*;
-import static com.github.bruce.BaseUtil.*;
+import static com.github.bruce.utils.BaseUtil.*;
 import static java.util.stream.Collectors.maxBy;
 
 
