@@ -15,6 +15,7 @@ public class PerformanceOfStream {
         System.out.println("Iterative sum done in:" + measureSumPerformance(PerformanceOfStream::iterativeSum, n) + " msecs");
         System.out.println("Parallel sum done in:" + measureSumPerformance(PerformanceOfStream::parallelSum, n) + " msecs");
         System.out.println("Parallel range sum done in:" + measureSumPerformance(PerformanceOfStream::parallelRangeSum, n) + " msecs");
+        System.out.println("ForkJoin sum done in:" + measureSumPerformance(ForkJoinSumCalculator::forkJoinSum, n) + " msecs");
     }
 
     /**
