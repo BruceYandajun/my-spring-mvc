@@ -1,4 +1,4 @@
-package com.github.bruce.java8;
+package com.github.bruce.java8.optional;
 
 import java.util.HashMap;
 import java.util.Map;
