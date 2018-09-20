@@ -4,18 +4,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.apache.commons.lang.math.RandomUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import static java.util.stream.Collectors.toList;
 
 @Data
 @AllArgsConstructor
 public class Shop {
-    private static List<Shop> shops;
-    private static Executor executor;
+    public static List<Shop> shops;
+    public static Executor executor;
 
     static {
         shops = Arrays.asList(new Shop("BestPrice"),
@@ -34,6 +36,13 @@ public class Shop {
 
     public double getPrice(String product) {
         return calculatePrice(product);
+    }
+
+    public String getPrice_discount(String product) {
+        double price = calculatePrice(product);
+        Discount.Code code = Discount.Code.values()[
+                RandomUtils.nextInt(Discount.Code.values().length)];
+        return String.format("%s:%.2f:%s", name, price, code);
     }
 
     public Future<Double> getPriceAsync(String product) {
@@ -57,21 +66,21 @@ public class Shop {
         return CompletableFuture.supplyAsync(() -> calculatePrice(product), executor);
     }
 
-    public List<String> findPrices(String product) {
+    public static List<String> findPrices(String product) {
         return shops.stream()
                 .map(shop -> String.format("%s price is %.2f",
                         shop.getName(), shop.getPrice(product)))
                 .collect(toList());
     }
 
-    public List<String> findPrices_parallel(String product) {
+    public static List<String> findPrices_parallel(String product) {
         return shops.parallelStream()
                 .map(shop -> String.format("%s price is %.2f",
                         shop.getName(), shop.getPrice(product)))
                 .collect(toList());
     }
 
-    public List<String> findPrices_future(String product) {
+    public static List<String> findPrices_future(String product) {
         List<CompletableFuture<String>> priceFutures =
                 shops.stream()
                         .map(shop -> CompletableFuture.supplyAsync(
@@ -81,7 +90,7 @@ public class Shop {
         return priceFutures.stream().map(CompletableFuture::join).collect(toList());
     }
 
-    public List<String> findPrices_customizePool(String product) {
+    public static List<String> findPrices_customizePool(String product) {
         List<CompletableFuture<String>> priceFutures =
                 shops.stream()
                         .map(shop -> CompletableFuture.supplyAsync(
@@ -98,8 +107,10 @@ public class Shop {
     }
 
     public static void delay() {
+        int delay = 500 + RandomUtils.nextInt(2000);
+//        delay = 1000;
         try {
-            Thread.sleep(1000L);
+            Thread.sleep(delay);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

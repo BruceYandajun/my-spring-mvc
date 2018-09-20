@@ -6,10 +6,10 @@ import static com.github.bruce.utils.BaseUtil.line;
 
 public class PriceCalculator {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         line("The number of available processors : " + Runtime.getRuntime().availableProcessors());
 
-        futureStream();
+        Discount.printAllPrices();
     }
 
     public static void getPriceAsync() throws InterruptedException {
@@ -32,25 +32,36 @@ public class PriceCalculator {
     }
 
     public static void sequentialStream() {
-        Shop shop = new Shop("App store");
         long start = System.nanoTime();
-        line(shop.findPrices("iphone se"));
+        line(Shop.findPrices("iphone se"));
         long duration = (System.nanoTime() - start) / 1_000_000;
         line("Done in " + duration + " msecs");
     }
 
     public static void parallelStream() {
-        Shop shop = new Shop("App store");
         long start = System.nanoTime();
-        line(shop.findPrices_parallel("iphone se"));
+        line(Shop.findPrices_parallel("iphone se"));
         long duration = (System.nanoTime() - start) / 1_000_000;
         line("Done in " + duration + " msecs");
     }
 
     public static void futureStream() {
-        Shop shop = new Shop("App store");
         long start = System.nanoTime();
-        line(shop.findPrices_customizePool("iphone se"));
+        line(Shop.findPrices_customizePool("iphone se"));
+        long duration = (System.nanoTime() - start) / 1_000_000;
+        line("Done in " + duration + " msecs");
+    }
+
+    public static void discount() {
+        long start = System.nanoTime();
+        line(Discount.findPrices("iphone se"));
+        long duration = (System.nanoTime() - start) / 1_000_000;
+        line("Done in " + duration + " msecs");
+    }
+
+    public static void discount_future() {
+        long start = System.nanoTime();
+        line(Discount.findPrices_future("iphone se"));
         long duration = (System.nanoTime() - start) / 1_000_000;
         line("Done in " + duration + " msecs");
     }
