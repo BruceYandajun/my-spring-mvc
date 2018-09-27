@@ -23,6 +23,9 @@ public class SortedTest {
         // 按重量排序
         List<Apple> sortedList = apples.stream().sorted(comparingInt(Apple::getWeight)).collect(toList());
         line(sortedList);
+        // 或者直接用sort方法，不用赋值，会修改原list
+        apples.sort(comparingInt(Apple::getWeight));
+        line(apples);
         // 按颜色指定顺序
         List<Apple> sortedList1 = apples.stream().sorted(comparingInt(SortedTest::sortByColor)).collect(toList());
         line(sortedList1);
