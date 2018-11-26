@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ListToMapTest {
     public static void main(String[] args) {
@@ -15,5 +14,6 @@ public class ListToMapTest {
         list.add(map);
 
 //        list.stream().collect(Collectors.toMap(a -> a.get(""), a.get("")));
+
     }
 }
