@@ -1,9 +1,8 @@
 package com.github.bruce.java8.date;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
+import java.time.temporal.TemporalField;
+import java.util.TimeZone;
 
 import static com.github.bruce.utils.BaseUtil.line;
 
@@ -17,5 +16,16 @@ public class LocalDateTimeTest {
 //        LocalDateTime localDateTime = date.atTime(13, 45, 20);
 //        LocalDateTime localDateTime = time.atDate(date);
         line("DateTime: " + localDateTime.toString().replace("T", " "));
+
+        LocalDateTime now = LocalDateTime.now();
+        ZoneOffset offset = ZonedDateTime.now().getOffset();
+        line(now.toEpochSecond(offset));// seconds
+        line(System.currentTimeMillis());// milliseconds
+        LocalDateTime fourWeeksLater = now.plusWeeks(4);
+        line(fourWeeksLater);
+        line(Instant.now().toEpochMilli());
+        line(offset);
+        line(LocalDateTime.ofEpochSecond(now.toEpochSecond(offset), 0, offset).plusWeeks(4));
+
     }
 }
