@@ -25,5 +25,11 @@ public class LocalDateTimeTest {
         line(offset);
         line(LocalDateTime.ofEpochSecond(now.toEpochSecond(offset), 0, offset).plusWeeks(4));
 
+        yesterdayStartTime();
+    }
+
+    private static void yesterdayStartTime() {
+        long l = LocalDateTime.now().minusDays(1).withHour(0).withMinute(0).withSecond(0).withNano(0).toEpochSecond(ZonedDateTime.now().getOffset());
+        line(l);
     }
 }
