@@ -32,5 +32,6 @@ public class LocalDateTest {
         line(date2);
         LocalDate date3 = date2.with(lastDayOfMonth());
         line(date3);
+
     }
 }
