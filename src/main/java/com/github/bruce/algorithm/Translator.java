@@ -5,18 +5,20 @@ import java.util.concurrent.*;
 
 public class Translator {
 
-    private ExecutorCompletionService<String> executorCompletionService = new ExecutorCompletionService<>(Executors.newCachedThreadPool());
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         System.out.println(new Translator().translate("abc"));
     }
 
     // todo
     public String translate(String content) throws InterruptedException, ExecutionException {
+        ExecutorService executor = Executors.newCachedThreadPool();
+        ExecutorCompletionService<String> executorCompletionService = new ExecutorCompletionService<>(executor);
         executorCompletionService.submit(() -> baidu(content));
         executorCompletionService.submit(() -> google(content));
         executorCompletionService.submit(() -> youdao(content));
-        return executorCompletionService.take().get();
+        String result = executorCompletionService.take().get();
+        executor.shutdown();
+        return result;
     }
 
     public String baidu(String content) {
