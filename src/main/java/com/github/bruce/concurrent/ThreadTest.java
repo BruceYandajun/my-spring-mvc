@@ -40,7 +40,7 @@ public class ThreadTest {
             }
             System.out.println("run");
         };
-        Future future = Executors.newFixedThreadPool(10).submit(r);
+        Future<?> future = Executors.newFixedThreadPool(10).submit(r);
         try {
             future.get();// Block until thread completed
         } catch (InterruptedException | ExecutionException e) {
