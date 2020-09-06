@@ -1,4 +1,4 @@
-package com.github.bruce.algorithm;
+package com.github.bruce.base.collections.map;
 
 import com.google.common.collect.Maps;
 

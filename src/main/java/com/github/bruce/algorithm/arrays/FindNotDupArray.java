@@ -1,4 +1,4 @@
-package com.github.bruce.algorithm;
+package com.github.bruce.algorithm.arrays;
 
 import com.google.common.collect.Lists;
 

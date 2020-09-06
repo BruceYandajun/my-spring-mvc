@@ -1,4 +1,4 @@
-package com.github.bruce.base.collections;
+package com.github.bruce.base.collections.list;
 
 import com.google.common.collect.Lists;
 
